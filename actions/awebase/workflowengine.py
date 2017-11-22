@@ -8,6 +8,14 @@ import threading
 import sys
 import traceback
 import os
+import signal
+
+# This import is fugly, however, WorkflowEngine depends on the env var being set! :(
+# This env needs to be hard coded in the python pip package.
+
+os.environ['AWE_HOME'] = "/opt/stackstorm/packs/awe/actions/"
+
+from wfeng.workflowengine import WorkflowEngine
 
 
 def dumpstacks(signal, frame):
@@ -25,7 +33,6 @@ def dumpstacks(signal, frame):
     f.write("\n".join(code))
     f.close()
 
-import signal
 signal.signal(signal.SIGUSR1, dumpstacks)
 
 if not os.environ.get("AWE_HOME"):
@@ -34,7 +41,6 @@ if not os.environ.get("AWE_HOME"):
              os.path.dirname(os.path.realpath(__file__)))
 sys.path.append("{0}/lib".format(os.environ["AWE_HOME"]))
 
-from wfeng.workflowengine import WorkflowEngine
 
 if __name__ == "__main__":
     wfeng = WorkflowEngine()
