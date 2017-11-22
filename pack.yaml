@@ -1,0 +1,11 @@
+/---
+ref: awe
+name : awe
+description : Ammeon Workflow Engine
+keywords :
+  - awe
+  - ammeon
+  - simple_workflow
+version: 0.0.1
+author : davidjohngee
+email : david.gee@ipengineer.net
