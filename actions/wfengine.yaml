@@ -1,0 +1,123 @@
+---
+name: wfengine
+runner_type: python-script
+description: "Run the Ammeon Workflow Engine!"
+enabled: true
+entry_point: awebase/workflowengine.py
+parameters:
+  workfile:
+    type: string
+    description: "Full path to workflow XML file."
+    required: false
+    position: 4
+  hostfile:
+    type: string
+    required: false
+    description: "Full path to hosts XML file."
+    position: 3
+  inifile:
+    type: string
+    required: false
+    description: "Full path to INI file."
+    position: 14
+  nettimeout:
+    type: integer
+    required: false
+    description: "Network connection timeout in seconds."
+    position: 16
+  phase:
+    type: string
+    enum:
+    - display
+    - precheck
+    - execute
+    - postcheck
+    required: false
+    description: "Phase to run (display, precheck, execute, postcheck)."
+    position: 12
+  servertype:
+    type: array
+    required: false
+    description: "Comma separated types of sever to run on."
+    position: 6
+  servername:
+    type: array
+    description: "Comma separated names of server to run on."
+    required: false    
+    position: 5
+  tag:
+    type: string
+    description: "Only run tasks in this tagged set."
+    required: false
+    position: 2
+    position: 8
+  exclude:
+    type: array
+    description: "Comma separated names of server not to run on."
+    required: false
+    position: 13
+  task:
+    type: array
+    description: "Comma separated list of IDs of tasks to run."
+    required: false
+    position: 2
+  fix:
+    type: boolean
+    description: "Mark matching tasks as fixed."
+    required: false
+    position: 15
+  reset:
+    type: boolean
+    description: "Mark matching tasks as reset."
+    required: false
+    position: 0
+  version:
+    type: boolean
+    description: "Display version information."
+    required: false
+    position: 1
+  outputdecorate:
+    type: string
+    description: "Output level -> 0 no tags, 1 error tags, 2 error."
+    required: false
+    position: 9
+  answeryes:
+    type: boolean
+    description: "Silently answer yes to all questions except pauses."
+    required: false
+    position: 11
+  automate:
+    type: boolean
+    description: "Silently answer yes to all questions including pauses."
+    required: false
+    position: 10
+  alter_pause_escape:
+    type: boolean
+    description: "Invoke interactive add/delete of dynamic pause and dynamic escape into master status file."
+    required: false
+    position: 7
+  force: 
+    type: boolean
+    description: "Force execution."
+    required: false
+    position: 17
+  listing: 
+    type: boolean
+    description: "List."
+    required: false
+    position: 18
+  nospinner:
+    type: boolean
+    description: "No spinner!"
+    required: false
+    position: 19
+  allow_multiple:
+    type: boolean
+    description: "Allow multiple."
+    required: false
+    position: 20
+  parallel_delay:
+    type: boolean
+    description: "Parallel delay between executions."
+    required: false
+    position: 21
