@@ -17,7 +17,7 @@ from st2actions.runners.pythonrunner import Action
 # This env needs to be hard coded in the python pip package.
 
 os.environ['AWE_HOME'] = "/opt/stackstorm/packs/awe/actions/"
-
+os.environ['TERM'] = "xterm"
 
 from wfeng.workflowengine import WorkflowEngine
 from wfeng import constants
